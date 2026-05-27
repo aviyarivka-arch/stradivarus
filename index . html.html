@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>סטראדיווריוס - יצירת המופת</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Assistant:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --violin-brown: #2d1403;
+            --violin-gold: #c5a059;
+            --paper: #fcf9f2;
+        }
+        body {
+            font-family: 'Assistant', sans-serif;
+            background-color: var(--paper);
+            color: #1a1a1a;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, .font-serif {
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('https://cdn.getyourguide.com/image/format=auto,fit=crop,gravity=auto,quality=60,width=375,height=375,dpr=2/tour_img/56e7da65ea26c.jpeg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        /* Circular Player - Interactive */
+        .violin-circle {
+            width: 380px;
+            height: 380px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #3e1a04 0%, #1a0a02 100%);
+            border: 8px solid var(--violin-gold);
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 60px;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5), inset 0 0 40px rgba(0,0,0,0.9);
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .circle-string {
+            width: 2px;
+            height: 85%;
+            background: linear-gradient(to bottom, transparent, #e5e5e5, transparent);
+            box-shadow: 0 0 8px rgba(255,255,255,0.4);
+            cursor: pointer;
+            transition: 0.15s;
+            z-index: 5;
+        }
+        .circle-string:hover {
+            box-shadow: 0 0 20px #fff;
+            filter: brightness(1.8);
+            transform: scaleX(1.5);
+        }
+        .vibrating {
+            animation: vibrate 0.05s infinite alternate linear;
+        }
+        @keyframes vibrate {
+            from { transform: translateX(-2px); }
+            to { transform: translateX(2px); }
+        }
+
+        /* Navigation */
+        nav {
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
+        }
+
+        .page { display: none; animation: fadeIn 0.6s ease; }
+        .page.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .image-card {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border: 1px solid rgba(197, 160, 89, 0.2);
+            background: white;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="fixed top-0 w-full z-50 py-5 px-10 flex justify-between items-center text-white">
+        <div class="text-2xl font-serif tracking-[0.3em] text-amber-500 font-bold">STRADIVARI</div>
+        <div class="flex gap-10 text-xs font-semibold uppercase tracking-widest">
+            <button onclick="showPage('home')" class="hover:text-amber-500 transition border-b border-transparent hover:border-amber-500 pb-1">דף הבית</button>
+            <button onclick="showPage('history')" class="hover:text-amber-500 transition border-b border-transparent hover:border-amber-500 pb-1">היסטוריה</button>
+            <button onclick="showPage('anatomy')" class="hover:text-amber-500 transition border-b border-transparent hover:border-amber-500 pb-1">מבנה הכלי</button>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home" class="page active">
+        <section class="hero-section">
+            <div class="px-6">
+                <span class="text-amber-500 tracking-[0.5em] block mb-4 font-serif uppercase">The Master of Sound</span>
+                <h1 class="text-6xl md:text-9xl font-bold text-white mb-6 uppercase leading-none">STRADIVARIUS</h1>
+                <p class="text-xl md:text-3xl text-amber-100 font-light italic mb-10">יצירת המופת הנדירה בעולם</p>
+                <button onclick="document.getElementById('start').scrollIntoView({behavior:'smooth'})" class="border-2 border-amber-500 text-amber-500 px-12 py-4 font-bold hover:bg-amber-500 hover:text-black transition uppercase tracking-widest">לחשיפה</button>
+            </div>
+        </section>
+
+        <main id="start" class="max-w-6xl mx-auto py-32 px-6">
+            <div class="grid md:grid-cols-2 gap-20 items-center mb-44">
+                <div>
+                    <h2 class="text-5xl font-bold mb-8 text-amber-950">האגדה מקרמונה</h2>
+                    <p class="text-xl text-gray-700 leading-relaxed mb-6">
+                        אנטוניו סטראדיוורי (1644–1737) נחשב לגדול בוני הכינורות בהיסטוריה. כל כינור שיצא מתחת לידיו עוצב בדייקנות מתמטית שאיש לא הצליח לשחזר במלואה עד היום.
+                    </p>
+                    <p class="text-lg text-amber-800 font-semibold italic">
+                        "הצליל שלו חודר דרך הלב ומגיע לנשמה."
+                    </p>
+                </div>
+                <div class="image-card">
+                    <img src="https://www.omnimusicshop.com/cdn/shop/products/VT-500_Scroll_Back_grande.jpg?v=1596011875">
+                    <div class="p-6">
+                        <span class="text-xs text-amber-600 font-bold uppercase tracking-widest">מבט מקרוב: גוף הכינור</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Circular Interactive Player -->
+            <section class="py-24 bg-stone-100 rounded-[3rem] shadow-inner border border-stone-200">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl font-bold text-amber-950 mb-4">סימולטור הצליל האגדי</h2>
+                    <p class="text-gray-600">עברו עם העכבר בתוך העיגול כדי לשמוע את תדרי הכינור</p>
+                </div>
+
+                <div class="violin-circle">
+                    <div class="circle-string" id="string-G" onmouseenter="playNote(196, 'G')"></div>
+                    <div class="circle-string" id="string-D" onmouseenter="playNote(293.66, 'D')"></div>
+                    <div class="circle-string" id="string-A" onmouseenter="playNote(440, 'A')"></div>
+                    <div class="circle-string" id="string-E" onmouseenter="playNote(659.25, 'E')"></div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <button class="bg-amber-900 text-amber-200 px-10 py-3 rounded-full font-bold hover:bg-amber-800 transition" onclick="initAudio()">הפעלת סאונד</button>
+                    <p id="audio-status" class="mt-4 text-xs font-mono text-amber-700 uppercase tracking-widest"></p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- HISTORY PAGE -->
+    <div id="history" class="page max-w-5xl mx-auto py-40 px-6 min-h-screen">
+        <h2 class="text-6xl font-bold mb-16 text-amber-950 text-center">מסע בזמן</h2>
+        <div class="grid md:grid-cols-2 gap-16 items-start">
+            <div class="space-y-8 text-xl text-gray-700 leading-relaxed">
+                <p>הכינורות של סטראדיוורי נבנו מעצי מייפל ואשוחית שצמחו בתקופת "מיני עידן קרח" באירופה, מה שהפך את סיבי העץ לצפופים במיוחד והעניק לכלים את תהודתם הייחודית.</p>
+                <div class="bg-amber-50 p-8 rounded-xl border-r-4 border-amber-500">
+                    <h4 class="font-bold text-amber-900 mb-2 text-2xl">יצירת מופת שורדת</h4>
+                    <p class="text-lg">מתוך כ-1,100 כלים שנבנו, נותרו היום כ-650 כינורות בלבד, כל אחד מהם שווה מיליוני דולרים.</p>
+                </div>
+            </div>
+            <div class="image-card">
+                <img src="https://pic1.calcalist.co.il/picserver3/crop_images/2022/06/07/SkgCA7T2O5/SkgCA7T2O5_0_62_727_410_0_large.jpg">
+            </div>
+        </div>
+    </div>
+
+    <!-- ANATOMY PAGE -->
+    <div id="anatomy" class="page max-w-6xl mx-auto py-40 px-6 min-h-screen">
+        <h2 class="text-6xl font-bold mb-20 text-center text-amber-950">סודות המבנה</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="bg-white p-10 rounded-3xl shadow-lg border-t-4 border-amber-600">
+                <h3 class="text-2xl font-bold text-amber-900 mb-6">פתחי ה-f</h3>
+                <p class="text-gray-600 leading-relaxed">הצורה המושלמת של הפתחים מאפשרת לאוויר לנוע בתיבת התהודה בצורה שיוצרת את הצליל החם והעשיר.</p>
+            </div>
+            <div class="bg-white p-10 rounded-3xl shadow-lg border-t-4 border-amber-600">
+                <h3 class="text-2xl font-bold text-amber-900 mb-6">הגשר והנשמה</h3>
+                <p class="text-gray-700 leading-relaxed">הגשר מעביר את הרטט, בעוד ה"נשמה" (Sound post) בתוך הכינור מחברת בין הלוחות ויוצרת את ההדהוד.</p>
+            </div>
+            <div class="bg-white p-10 rounded-3xl shadow-lg border-t-4 border-amber-600">
+                <h3 class="text-2xl font-bold text-amber-900 mb-6">השבלול (Scroll)</h3>
+                <p class="text-gray-600 leading-relaxed">הגילוף האמנותי בראש הכינור הוא סימן ההיכר הבלעדי של הבונה ומעיד על רמת הגימור הגבוהה.</p>
+            </div>
+        </div>
+        <div class="mt-20 image-card">
+            <img src="https://ynet-pic1.yit.co.il/picserver6/crop_images/2025/02/04/r15OsIkYyg/r15OsIkYyg_0_240_3000_1689_0_large.jpg">
+        </div>
+    </div>
+
+    <footer class="bg-black text-amber-700 py-20 text-center">
+        <div class="text-3xl font-serif tracking-[1em] mb-4">STRADIVARI</div>
+        <p class="text-xs opacity-50 uppercase tracking-widest">100% Violin Heritage | אומנות הכינור בלבד</p>
+    </footer>
+
+    <script>
+        function showPage(id) {
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        let audioCtx;
+        function initAudio() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                document.getElementById('audio-status').innerText = "AUDIO SYSTEM: ONLINE";
+            }
+        }
+
+        function playNote(freq, id) {
+            if (!audioCtx) return;
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+
+            const osc = audioCtx.createOscillator();
+            const gain = audioCtx.createGain();
+            
+            osc.type = 'sawtooth';
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            gain.gain.setValueAtTime(0, audioCtx.currentTime);
+            gain.gain.linearRampToValueAtTime(0.3, audioCtx.currentTime + 0.05);
+            gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 1.2);
+            
+            const filter = audioCtx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(2200, audioCtx.currentTime);
+
+            osc.connect(filter);
+            filter.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            osc.start();
+            osc.stop(audioCtx.currentTime + 1.2);
+
+            const el = document.getElementById('string-' + id);
+            el.classList.add('vibrating');
+            setTimeout(() => el.classList.remove('vibrating'), 500);
+        }
+    </script>
+</body>
+</html>
